@@ -11,10 +11,7 @@ import localStorageSet from './backend/Strage'
 export default function App() {
   const [currentPage, setCurrentPage] = useState('QRPage');
   const nodeRef = useRef(null);
-
-  useEffect(() => {
-    localStorageSet();
-  })
+  localStorageSet();
 
 
   const getPageComponent = (page: string) => {
