@@ -1,8 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Webcam from 'react-webcam';
 import jsQR from 'jsqr';
+import { InventorySearch } from '../backend/GoogleAPI';
 
-const QRReader = () => {
+interface SettingProps {
+  setCurrentPage: (page: string) => void;
+}
+
+const QRReader = ({ setCurrentPage }: SettingProps) => {
   const webcamRef = useRef<Webcam>(null);
   const [data, setData] = useState<string | null>(null);
 
@@ -28,8 +33,11 @@ const QRReader = () => {
               const imageData = context.getImageData(0, 0, image.width, image.height);
               const code = jsQR(imageData.data, imageData.width, imageData.height);
               if (code) {
-                setData(code.data);
-                clearInterval(interval); // データが取得できたらスキャンを停止
+                //setData(code.data);
+                clearInterval(interval);
+                const Data =  InventorySearch(Number(code.data), '商品コード', '在庫一覧');
+                setData(Data);
+                localStorage.setItem(`${Data.商品コード}`, Data.現在庫数);
               }
             }
           };

@@ -4,6 +4,7 @@ import './App.css';
 import React, { useRef } from 'react';
 import QR from './sub_src/QR';
 import TEST from './sub_src/TEST';
+import DataInput from './sub_src/Data_input';
 
 
 export default function App() {
@@ -15,7 +16,9 @@ export default function App() {
   const getPageComponent = (page: string) => {
     switch (page) {
       case 'QRPage':
-        return <QR />;
+        return <QR setCurrentPage={setCurrentPage}/>;
+      case 'DataPage':
+        return <DataInput setCurrentPage={setCurrentPage}/>;
       default:
         return <TEST />;
     }
