@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../css/a_button.css';
 import '../css/Data.css';
 
+
 interface SettingProps {
   setCurrentPage: (page: string) => void;
 }
