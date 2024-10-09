@@ -2,16 +2,20 @@ import React, { useRef, useEffect, useState } from 'react';
 import Webcam from 'react-webcam';
 import jsQR from 'jsqr';
 import { searchStr } from '../backend/Strage';
+import localStorageSet from '../backend/Strage';
 
 interface SettingProps {
   setCurrentPage: (page: string) => void;
 }
 
+
 const QRReader = ({ setCurrentPage }: SettingProps) => {
   const webcamRef = useRef<Webcam>(null);
   const [data, setData] = useState<any>(null);
   const [testData, settestData] = useState<any>(null);
-
+  useEffect(() => {
+    localStorageSet();
+  })
   // 背面カメラを指定
   const videoConstraints = {
     facingMode: { exact: 'user' },//かめら画面指定
