@@ -10,6 +10,7 @@ interface SettingProps {
 const QRReader = ({ setCurrentPage }: SettingProps) => {
   const webcamRef = useRef<Webcam>(null);
   const [data, setData] = useState<any>(null);
+  const [testData, settestData] = useState<any>(null);
 
   // 背面カメラを指定
   const videoConstraints = {
@@ -35,8 +36,8 @@ const QRReader = ({ setCurrentPage }: SettingProps) => {
               if (code) {
                 setData(code.data);
                 clearInterval(interval);
-                // const Data = await InventorySearch(Number(code.data), '商品コード', '在庫一覧');
-                //setData(Data);
+                const Data = await InventorySearch(Number(code.data), '商品コード', '在庫一覧');
+                settestData(Data);
                 //localStorage.setItem(`${Data.商品コード}`, Data.現在庫数);
               }
             }
@@ -64,7 +65,7 @@ const QRReader = ({ setCurrentPage }: SettingProps) => {
           <p>QRコードをスキャンしてください...</p>
         )}
       </div>
-      <button type="button" onClick={() => window.close()}>閉じる</button>
+      <div>{testData}</div>
     </div>
   );
 };
