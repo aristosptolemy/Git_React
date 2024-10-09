@@ -6,13 +6,13 @@ interface SettingProps {
   setCurrentPage: (page: string) => void;
 }
 export default function DataInput({ setCurrentPage }: SettingProps) {
-  const [QRData, setQRData] = useState([]);
+  const [QRData, setQRData] = useState([[]]);
 
   useEffect(() => {
     const storedData = localStorage.getItem('QRData');
     console.log(storedData);
     const productData = storedData ? JSON.parse(storedData) : null;
-    setQRData(productData);
+    //setQRData(productData);
     console.log(productData);
   }, []);
 
