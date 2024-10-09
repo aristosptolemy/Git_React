@@ -3,6 +3,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import './App.css';
 import React, { useRef } from 'react';
 import QR from './sub_src/QR';
+import TEST from './sub_src/TEST';
 
 
 export default function App() {
@@ -16,7 +17,7 @@ export default function App() {
       case 'QRPage':
         return <QR />;
       default:
-        return null;
+        return <TEST />;
     }
   };
 
