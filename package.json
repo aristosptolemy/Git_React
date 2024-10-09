@@ -26,7 +26,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "build-and-deploy": "npm run build && git add . && git commit -m 'Build and deploy' && git push origin main && npm run deploy"
+    "build-and-deploy": "npm run build && git push origin main && npm run deploy"
   },
   "homepage": "https://aristosptolemy.github.io/Git_React/",
   "eslintConfig": {
