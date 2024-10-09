@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import '../css/a_button.css';
 import '../css/Data.css';
 
@@ -8,6 +8,12 @@ interface SettingProps {
 }
 export default function DataInput({ setCurrentPage }: SettingProps) {
   const [QRData, setQRData] = useState([[]]);
+  const [InsertNumber, setInsertNumber] = useState<string>('');
+
+  const numberchange = (event: ChangeEvent<HTMLInputElement>) => {
+    const setnumber = event.target.value.replace(/[^0-9]/g, '');
+    setInsertNumber(setnumber);
+  };
 
   useEffect(() => {
     const storedData = localStorage.getItem('QRData');
@@ -44,10 +50,19 @@ export default function DataInput({ setCurrentPage }: SettingProps) {
             </tr>
           </tbody>
         </table>
-        <a className="buttonUnderline" type="button" onClick={() => NextScan()}>
-          次へ
-        </a>
-      </div>
+        </div>
+        <div className="control-area">
+          <input
+            type="tel"
+            pattern='^[0-9]+$'
+            placeholder='現物数'
+            value={InsertNumber}
+            onChange={(e) => numberchange(e)}
+          />
+          <a className="buttonUnderline" type="button" onClick={NextScan}>
+            次へ
+          </a>
+        </div>
     </div>
   );
 }
