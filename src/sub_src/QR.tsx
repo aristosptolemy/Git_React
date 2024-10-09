@@ -40,8 +40,9 @@ const QRReader = ({ setCurrentPage }: SettingProps) => {
                 clearInterval(interval);
                 const Data = await searchStr(code.data);
                 settestData(Data);
-                console.log(Data);
+                //console.log(Data);
                 localStorage.setItem('QRData', JSON.stringify(Data));
+                setCurrentPage('DataPage');
               }
             }
           };

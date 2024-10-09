@@ -19,7 +19,7 @@ export const searchStr = async (searchCode: any) => {
   }
   const result = data.filter((item: any[]) => {
     const productCode = item[1];
-    return productCode === searchCode;
+    return productCode === Number(searchCode);
   });
   return result;
 };
