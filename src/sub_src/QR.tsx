@@ -15,7 +15,7 @@ const QRReader = ({ setCurrentPage }: SettingProps) => {
   const [testData, settestData] = useState<any>(null);
   // 背面カメラを指定
   const videoConstraints = {
-    facingMode: { exact: 'user' },//environmentは背面userは前面
+    facingMode: { exact: 'environment' },//environmentは背面userは前面
   };
 
   useEffect(() => {
