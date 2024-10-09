@@ -9,7 +9,7 @@ interface SettingProps {
 
 const QRReader = ({ setCurrentPage }: SettingProps) => {
   const webcamRef = useRef<Webcam>(null);
-  const [data, setData] = useState<string | null>(null);
+  const [data, setData] = useState<any>(null);
 
   // 背面カメラを指定
   const videoConstraints = {
