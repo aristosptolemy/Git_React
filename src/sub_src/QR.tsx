@@ -15,7 +15,7 @@ const QRReader = ({ setCurrentPage }: SettingProps) => {
   const [testData, settestData] = useState<any>(null);
   // 背面カメラを指定
   const videoConstraints = {
-    facingMode: { exact: 'environment' },//environmentは背面userは前面
+    facingMode: { exact: 'user' },//environmentは背面userは前面
   };
 
   useEffect(() => {
@@ -40,8 +40,8 @@ const QRReader = ({ setCurrentPage }: SettingProps) => {
                 clearInterval(interval);
                 const Data = await searchStr(code.data);
                 settestData(Data);
-                //console.log(Data);
-                localStorage.setItem('QRData', JSON.stringify(Data)[0]);
+                console.log(Data);
+                localStorage.setItem('QRData', JSON.stringify(Data));
                 setCurrentPage('DataPage');
               }
             }

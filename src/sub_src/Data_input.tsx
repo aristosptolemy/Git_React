@@ -12,7 +12,7 @@ export default function DataInput({ setCurrentPage }: SettingProps) {
     const storedData = localStorage.getItem('QRData');
     console.log(storedData);
     const productData = storedData ? JSON.parse(storedData) : null;
-    //setQRData(productData);
+    setQRData(productData);
     console.log(productData);
   }, []);
 
@@ -22,10 +22,10 @@ export default function DataInput({ setCurrentPage }: SettingProps) {
 
   return(
     <div className="set">
-      <div>業者名: {QRData[0][0]}</div>
-      <div>商品コード: {QRData[0][1]}</div>
-      <div>商品名: {QRData[0][2]}</div>
-      <div>在庫数: {QRData[0][6]}</div>
+      <div>業者名: {QRData[0]}</div>
+      <div>商品コード: {QRData[1]}</div>
+      <div>商品名: {QRData[2]}</div>
+      <div>在庫数: {QRData[6]}</div>
       
       <a className="buttonUnderline" type="button" onClick={() => NextScan()}>
         次へ
