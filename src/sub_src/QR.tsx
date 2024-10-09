@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useRef, useEffect, useState } from 'react';
 import Webcam from 'react-webcam';
 import jsQR from 'jsqr';
@@ -19,8 +18,8 @@ const QRReader = ({ setCurrentPage }: SettingProps) => {
     facingMode: { exact: 'user' },//かめら画面指定
   };
 
-  useEffect(async () => {
-    await localStorageSet();
+  useEffect(() => {
+    localStorageSet();
     const interval = setInterval(() => {
       if (webcamRef.current) {
         const imageSrc = webcamRef.current.getScreenshot();
