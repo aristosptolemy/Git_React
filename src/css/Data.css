@@ -5,15 +5,12 @@
 }
 
 .set {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* 上から順に配置 */
   font-size: 20px;
   justify-content: center;
   /* position: absolute;
   top: 50%;
   transform: translateY(-50%); */
-  margin: 0 auto;
+  margin: auto;
 }
 .control-area {
   display: flex;
