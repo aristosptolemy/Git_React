@@ -14,7 +14,7 @@ const QRReader = ({ setCurrentPage }: SettingProps) => {
 
   // 背面カメラを指定
   const videoConstraints = {
-    facingMode: { exact: 'environment' },
+    facingMode: { exact: 'user' },
   };
 
   useEffect(() => {
