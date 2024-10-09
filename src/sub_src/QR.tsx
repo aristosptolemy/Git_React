@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Webcam from 'react-webcam';
 import jsQR from 'jsqr';
-import { InventorySearch } from '../backend/GoogleAPI';
+import { searchStr } from '../backend/Strage';
 
 interface SettingProps {
   setCurrentPage: (page: string) => void;
@@ -36,10 +36,10 @@ const QRReader = ({ setCurrentPage }: SettingProps) => {
               if (code) {
                 setData(code.data);
                 clearInterval(interval);
-                const Data = await InventorySearch(Number(code.data), '商品コード', '在庫一覧');
+                const Data = await searchStr(code.data);
                 settestData(Data);
                 console.log(Data);
-                //localStorage.setItem(`${Data.商品コード}`, Data.現在庫数);
+                localStorage.setItem('QRData', JSON.stringify(Data));
               }
             }
           };
