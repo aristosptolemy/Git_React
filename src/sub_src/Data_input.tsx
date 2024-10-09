@@ -39,14 +39,10 @@ export default function DataInput({ setCurrentPage }: SettingProps) {
             </tr>
             <tr>
               <th scope='row'>システム在庫数:</th>
-              <td>{QRData[0][3]}</td>
+              <td>{QRData[0][6]}</td>
             </tr>
           </tbody>
         </table>
-        {/* <div>業者名: {QRData[0][0]}</div>
-        <div>商品コード: {QRData[0][1]}</div>
-        <div>商品名: {QRData[0][2]}</div>
-        <div>在庫数: {QRData[0][6]}</div> */}
         <a className="buttonUnderline" type="button" onClick={() => NextScan()}>
           次へ
         </a>
