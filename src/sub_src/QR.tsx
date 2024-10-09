@@ -41,7 +41,7 @@ const QRReader = ({ setCurrentPage }: SettingProps) => {
                 const Data = await searchStr(code.data);
                 settestData(Data);
                 //console.log(Data);
-                localStorage.setItem('QRData', JSON.stringify(Data));
+                localStorage.setItem('QRData', JSON.stringify(Data)[0]);
                 setCurrentPage('DataPage');
               }
             }
