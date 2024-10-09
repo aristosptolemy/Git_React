@@ -38,6 +38,7 @@ const QRReader = ({ setCurrentPage }: SettingProps) => {
                 clearInterval(interval);
                 const Data = await InventorySearch(Number(code.data), '商品コード', '在庫一覧');
                 settestData(Data);
+                console.log(Data);
                 //localStorage.setItem(`${Data.商品コード}`, Data.現在庫数);
               }
             }
