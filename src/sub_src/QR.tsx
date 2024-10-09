@@ -23,7 +23,7 @@ const QRReader = ({ setCurrentPage }: SettingProps) => {
         if (imageSrc) {
           const image = new Image();
           image.src = imageSrc;
-          image.onload = () => {
+          image.onload = async () => {
             const canvas = document.createElement('canvas');
             canvas.width = image.width;
             canvas.height = image.height;
@@ -33,10 +33,10 @@ const QRReader = ({ setCurrentPage }: SettingProps) => {
               const imageData = context.getImageData(0, 0, image.width, image.height);
               const code = jsQR(imageData.data, imageData.width, imageData.height);
               if (code) {
-                //setData(code.data);
+                setData(code.data);
                 clearInterval(interval);
-                const Data =  InventorySearch(Number(code.data), '商品コード', '在庫一覧');
-                setData(Data);
+                // const Data = await InventorySearch(Number(code.data), '商品コード', '在庫一覧');
+                //setData(Data);
                 //localStorage.setItem(`${Data.商品コード}`, Data.現在庫数);
               }
             }
