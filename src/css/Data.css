@@ -19,6 +19,7 @@
 }
 .detail {
   margin-bottom: 20px; /* 下の要素と適度な間隔を設ける */
+  margin: 0 auto;
 }
 
 table {
