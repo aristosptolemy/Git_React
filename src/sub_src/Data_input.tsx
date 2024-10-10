@@ -29,7 +29,7 @@ export default function DataInput({ setCurrentPage }: SettingProps) {
       alert('個数を入力してください');
       return
     }else{
-      ActualQuantityInsert(Number(QRData[0][1]), Number(InsertNumber));
+      ActualQuantityInsert(QRData[0][1], Number(InsertNumber));
       setCurrentPage('QRPage');
     }
   };

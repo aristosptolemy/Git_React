@@ -91,7 +91,7 @@ export const IMAGEGET = async(
 };
 
 export const ActualQuantityInsert = async (
-  code: number,
+  code: any,
   actualQuantity: number
 ) => {
   try {
