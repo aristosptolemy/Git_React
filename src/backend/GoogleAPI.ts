@@ -101,7 +101,7 @@ export const ActualQuantityInsert = async (
         method: 'POST',
         body: JSON.stringify({
           action: 'QuantitySet',
-          sub_action: 'get',
+          sub_action: 'post',
           sheetName: '在庫一覧',
           searchCode: code,
           setData: actualQuantity,
