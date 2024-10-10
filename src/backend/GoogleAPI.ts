@@ -89,3 +89,37 @@ export const IMAGEGET = async(
     return (e);
   }
 };
+
+export const ActualQuantityInsert = async (
+  code: number,
+  actualQuantity: number
+) => {
+  try {
+    const response = await fetch(
+      URL_STRING,
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          action: 'QuantitySet',
+          sub_action: 'get',
+          sheetName: '在庫一覧',
+          searchCode: code,
+          setData: actualQuantity,
+        })
+      },
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+    const result = await response.json();
+    console.log(result);
+    if (result.length > 1) {
+      return result;
+    }else{
+      return null;
+    }
+  }catch(e){
+    return (e);
+  }
+};
+

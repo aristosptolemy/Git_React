@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import '../css/a_button.css';
 import '../css/Data.css';
+import { ActualQuantityInsert } from '../backend/GoogleAPI';
 
 
 interface SettingProps {
@@ -24,7 +25,13 @@ export default function DataInput({ setCurrentPage }: SettingProps) {
   }, []);
 
   const NextScan = () => {
-    setCurrentPage('QRPage');
+    if (InsertNumber == ''){
+      alert('個数を入力してください');
+      return
+    }else{
+      ActualQuantityInsert(Number(QRData[0][1]), Number(InsertNumber));
+      setCurrentPage('QRPage');
+    }
   };
 
   return(
